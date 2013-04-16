@@ -203,8 +203,8 @@
         if (transform) {
           m = transform.match(/matrix\([\d\.]*,\s[\d\.]*,\s[\d\.]*,\s[\d\.]*,\s([\d\.]*).\s([\d\.]*)/);
           if (m && m.length > 2) {
-            element_position.left += parseFloat(m[1]);
-            element_position.top += parseFloat(m[2]);
+            element_position.left += parseFloat(m[1]) - 3;
+            element_position.top += parseFloat(m[2]) - 3;
           }
         }
         return element_position;
