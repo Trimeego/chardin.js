@@ -148,8 +148,20 @@ do ($ = window.jQuery, window) ->
 
       element_position.top = _y
       element_position.left = _x
+      @._apply_transform elm, element_position
+      
+
+    _apply_transform: (element, element_position)->
+      $e = $(element)
+      transform = $e.css("transform") || $e.css("-ms-transform") || $e.css("-moz-transform") || $e.css("-webkit-transform")
+      if transform
+        m = transform.match(/matrix\([\d\.]*,\s[\d\.]*,\s[\d\.]*,\s[\d\.]*,\s([\d\.]*).\s([\d\.]*)/)
+        if m and m.length > 2
+          element_position.left += parseFloat(m[1])
+          element_position.top += parseFloat(m[2])
       element_position
 
+      
   $.fn.extend chardinJs: (option, args...) ->
     $this = $(this[0])
     data = $this.data('chardinJs')
