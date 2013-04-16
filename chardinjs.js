@@ -179,7 +179,8 @@
       };
 
       chardinJs.prototype._get_offset = function(element) {
-        var element_position, _x, _y;
+        var element_position, elm, _x, _y;
+        elm = element;
         element_position = {
           width: element.offsetWidth,
           height: element.offsetHeight

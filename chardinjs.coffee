@@ -135,6 +135,7 @@ do ($ = window.jQuery, window) ->
       element.className += " chardinjs-relative-position"  if current_element_position isnt "absolute" and current_element_position isnt "relative"
 
     _get_offset: (element) ->
+      elm = element
       element_position =
         width: element.offsetWidth
         height: element.offsetHeight
